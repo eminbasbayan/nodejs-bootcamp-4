@@ -1,12 +1,3 @@
-require('./batman');
-require('./superman');
+const data = require("./data.json");
 
-(function () {
-  const superhero = 'Batman';
-  console.log(superhero);
-})();
-
-(function () {
-  const superhero = 'Superman';
-  console.log(superhero);
-})();
+console.log(data.name);
