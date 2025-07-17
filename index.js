@@ -1,5 +1,12 @@
-const mathIslem = require("./topla.js");
+require('./batman');
+require('./superman');
 
-console.log(mathIslem.toplamaYap(4, 5));
-console.log(mathIslem.carpmaYap(4, 5));
-console.log(mathIslem.bolmeYap(4, 5));
+(function () {
+  const superhero = 'Batman';
+  console.log(superhero);
+})();
+
+(function () {
+  const superhero = 'Superman';
+  console.log(superhero);
+})();
