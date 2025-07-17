@@ -1,6 +1,5 @@
-import toplamaYap from './topla.js';
-import { bolmeYap, carpmaYap } from './topla.js';
+const mathIslem = require("./topla.js");
 
-
-
-console.log(toplamaYap(4, 5));
+console.log(mathIslem.toplamaYap(4, 5));
+console.log(mathIslem.carpmaYap(4, 5));
+console.log(mathIslem.bolmeYap(4, 5));
