@@ -1,70 +1,87 @@
-// const EventEmitter = require('node:events');
-// const myEmitter = new EventEmitter();
+const fs = require('node:fs');
+const fsPromise = require("node:fs/promises")
 
-// // Olay dinleyicisini tanımlıyoruz
-// myEmitter.on('zilCaldi', () => {
-//   console.log('Kapıyı Aç!');
+// Dosya Yazma İşlemi
+// fs.writeFile('fatura.txt', 'Merhaba async dünya!', (err) => {
+//   if (err) throw err;
+
+//   console.log('Dosya oluşturuldu ve yazıldı.');
 // });
 
-// // Olayı tetikliyoruz!
-// myEmitter.emit("zilCaldi")
+// try {
+//   fs.writeFileSync('dosya-sync.txt', 'Merhaba sync dünya!');
+// } catch (error) {
+//   console.log(error);
+// }
 
-/* ****************** */
+// fs.appendFile('dosya.txt', '\nYeni satır eklendi (async)', (err) => {
+//   if (err) throw err;
 
-// const EventEmitter = require('node:events');
-// const siparis = new EventEmitter();
-
-// siparis.once('siparisGeldi', (isim, miktar) => {
-//   console.log(`${miktar} adet ${isim} hazırla!`);
+//   console.log('Veri eklendi.');
 // });
 
-/* ****************** */
+// try {
+//   fs.appendFileSync('dosya-sync.txt', '\nYeni satır eklendi (sync)');
+//   console.log('Sync veri eklendi!');
+// } catch (error) {
+//   console.log(error);
+// }
 
-// const EventEmitter = require('node:events');
-// const app = new EventEmitter();
+// fs.readFile('dosya.txt', 'utf8', (err, data) => {
+//   if (err) throw err;
 
-// app.on("error", (err)=>{
-//     console.log("Hata oluştu:", err.message);
-
-// })
-
-// app.emit("error", new Error("Veritabanı bağlantısı yok!"))
-
-/* ****************** */
-
-// const EventEmitter = require('node:events');
-// const eposta = new EventEmitter();
-
-// const email = "user@example.com"
-
-// eposta.on('gonderildi', (email) => {
-//   console.log('E-posta gönderildi!', email);
+//   console.log('Dosya içeriği:', data);
 // });
 
-// eposta.on('gonderildi', (email) => {
-//   const adminEposta = 'eminbasbayan@bilgentech.com';
-//   if (email === adminEposta) {
-//     console.log('Kayıt loglandı!', email);
-//   }
+// try {
+//   const icerik = fs.readFileSync('dosya.txt', 'utf8');
+//   console.log('Sync içeriği:', icerik);
+// } catch (err) {
+//   console.error(err);
+// }
+
+// fs.unlink('new.txt', (err) => {
+//   if (err) throw err;
+//   console.log('Dosya silindi.');
 // });
 
-// eposta.emit('gonderildi', email);
+// try {
+//   fs.unlinkSync('new-sync.txt');
+//   console.log('Dosya sync silindi.');
+// } catch (err) {
+//   console.error(err);
+// }
 
-/* ****************** */
+// fs.rename('dosya.txt', 'yeni.txt', (err) => {
+//   if (err) throw err;
+//   console.log('Dosya adı değiştirildi.');
+// });
 
-const PizzaShop = require('./PizzaShop');
-const pizzaShop = new PizzaShop();
+// fs.mkdir('yeniklasor', (err) => {
+//   if (err) throw err;
+//   console.log('Klasör oluşturuldu.');
+// });
 
-const DrinkMachine = require('./DrinkMachine');
-const drinkMachine = new DrinkMachine();
+// if (fs.existsSync('dosya-sync.txt')) {
+//   console.log('Dosya mevcut.');
+// } else {
+//   console.log('Dosya bulunamadı.');
+// }
 
-pizzaShop.on('order', (size, topping) => {
-  console.log(`Sipariş alındı! ${size} boyutunda, ${topping} malzemeli pizza!`);
-});
+// fs.stat('dosya-sync.txt', (err, stats) => {
+//   if (err) throw err;
+//   console.log('Bilgi:', stats);
+// });
 
-pizzaShop.on('order', (size, topping) => {
-  drinkMachine.serveDrink(size);
-});
+// fs.readdir('./', (err, dosyalar) => {
+//   if (err) throw err;
+//   console.log('Dosyalar:', dosyalar);
+// });
 
-pizzaShop.placeOrder('large', 'mantar');
-pizzaShop.displayOrderNumber();
+
+// try {
+//   await fsPromise.writeFile('dosya.txt', 'Merhaba async/await!');
+//   console.log('Dosya oluşturuldu ve yazıldı.');
+// } catch (err) {
+//   console.error('Yazma hatası:', err);
+// }
