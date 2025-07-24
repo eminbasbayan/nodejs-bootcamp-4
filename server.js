@@ -20,12 +20,12 @@ app.post("/user", (req, res) => {
 
 
 // Güncelleme işlemi için PUT metodu kullanılıyor
-app.put("/user/:username", (req, res) => {
+app.put('/user/:username', (req, res) => {
   res.send(`User with ID ${req.params.username} updated`);
 });
 
 // Silme işlemi için DELETE metodu kullanılıyor
-app.delete("/user/:username", (req, res) => {
+app.delete('/user/:username', (req, res) => {
   res.send(`User with ID ${req.params.username} deleted`);
 });
 
