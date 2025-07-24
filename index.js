@@ -1,31 +1,34 @@
-const http = require('http');
-const path = require('path');
-const fs = require('fs');
+const express = require('express');
+const app = express();
+const port = 3000;
 
-const server = http.createServer((request, response) => {
-  let dosyaYolu = '';
 
-  if (request.url === '/') {
-    response.writeHead(200, { 'Content-Type': 'text/plain' });
-    response.end('Hoş geldin!');
-  } else if (request.url === '/hakkinda') {
-    dosyaYolu = path.join(__dirname, 'public', 'hakkinda.html');
-  } else {
-    response.writeHead(404, { 'Content-Type': 'text/plain' });
-    response.end('Böyle bir sayfa yok!');
-  }
-
-  fs.readFile(dosyaYolu, (err, data) => {
-    if (err) {
-      response.writeHead(500, { 'Content-Type': 'text/plain' });
-      return response.end("Sunucuda bir hata oluştu");
-    }
-
-    // response.writeHead(200, { 'Content-Type': 'text/html' });
-    response.end(data)
-  });
+// Veri alımı için GET metodu kullanılıyor
+app.get('/user', (req, res) => {
+  res.send('Hoş geldin!');
 });
 
-server.listen(5001, () => {
-  console.log('Server running on port 5001');
+// User detaylarını almak için GET metodu kullanılıyor
+app.get('/user/:username', (req, res) => {
+  res.send(`User details for ${req.params.username}`);
+});
+
+// Yeni bir user oluşturma işlemi için POST metodu kullanılıyor
+app.post("/user", (req, res) => {
+  res.send('User created');
+});
+
+
+// Güncelleme işlemi için PUT metodu kullanılıyor
+app.put("/user/:username", (req, res) => {
+  res.send(`User with ID ${req.params.username} updated`);
+});
+
+// Silme işlemi için DELETE metodu kullanılıyor
+app.delete("/user/:username", (req, res) => {
+  res.send(`User with ID ${req.params.username} deleted`);
+});
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
