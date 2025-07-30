@@ -1,0 +1,7 @@
+{
+  "id": "1",
+  "title": "Node.js ile Backend Geliştirme",
+  "content": "Node.js, JavaScript kullanarak sunucu tarafı uygulamalar geliştirmemizi sağlayan güçlü bir platformdur. Event-driven ve non-blocking I/O modeli sayesinde yüksek performanslı uygulamalar oluşturabilirsiniz. Bu yazıda Node.js'in temel özelliklerini ve avantajlarını inceleyeceğiz.",
+  "date": "2025-01-20",
+  "readCount": 16
+}

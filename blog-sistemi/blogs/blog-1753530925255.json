@@ -1,0 +1,7 @@
+{
+  "id": "1753530925255",
+  "title": "Test Blog Post",
+  "content": "This is a test blog post created via curl command to verify the POST endpoint functionality.",
+  "date": "2025-07-26",
+  "readCount": 0
+}

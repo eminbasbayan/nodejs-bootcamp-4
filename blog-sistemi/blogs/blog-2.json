@@ -1,0 +1,7 @@
+{
+  "id": "2",
+  "title": "JavaScript'te Asenkron Programlama",
+  "content": "Asenkron programlama, modern JavaScript uygulamalarının temel taşlarından biridir. Callback'lerden Promise'lere, async/await yapısına kadar olan gelişim sürecini bu yazıda ele alacağız. Özellikle Node.js'te dosya okuma/yazma ve HTTP istekleri gibi I/O işlemlerinde asenkron programlamanın önemi büyüktür.",
+  "date": "2025-01-19",
+  "readCount": 23
+}
