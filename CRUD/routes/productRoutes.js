@@ -8,6 +8,7 @@ const {
   updateProduct,
   deleteProduct,
 } = require("../controllers/productController");
+const auth = require("../middlewares/auth");
 
 // tüm ürünleri getir
 router.get("/", getAllProducts);
@@ -16,11 +17,11 @@ router.get("/", getAllProducts);
 router.get("/:id", getProductById);
 
 // yeni ürün oluştur
-router.post("/", createProduct);
+router.post("/", auth, createProduct);
 
 // ürünü güncelle
-router.put("/:id", updateProduct);
+router.put("/:id", auth, updateProduct);
 
-router.delete("/:id", deleteProduct);
+router.delete("/:id", auth, deleteProduct);
 
 module.exports = router;
