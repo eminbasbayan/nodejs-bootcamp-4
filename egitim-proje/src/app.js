@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const { notFound, errorHandler } = require('./middlewares/error');
 const applySecurity = require('./middlewares/security');
+const { swaggerUi, specs } = require('./config/swagger');
 
 // Routes import
 const authRoutes = require('./routes/auth.routes');
@@ -24,6 +25,16 @@ app.use(express.urlencoded({ extended: true }));
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+// Swagger Documentation
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(specs, {
+  explorer: true,
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: 'E-Ticaret API Docs',
+  swaggerOptions: {
+    persistAuthorization: true,
+  }
+}));
 
 // Health check
 app.get('/health', (req, res) => {
