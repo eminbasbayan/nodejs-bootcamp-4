@@ -4,12 +4,12 @@ const { notFound, errorHandler } = require('./middlewares/error');
 const applySecurity = require('./middlewares/security');
 
 // Routes import
-// const authRoutes = require('./routes/auth.routes');
-// const userRoutes = require('./routes/user.routes');
-// const categoryRoutes = require('./routes/category.routes');
-// const productRoutes = require('./routes/product.routes');
-// const orderRoutes = require('./routes/order.routes');
-// const reviewRoutes = require('./routes/review.routes');
+const authRoutes = require('./routes/auth.routes');
+const userRoutes = require('./routes/user.routes');
+const categoryRoutes = require('./routes/category.routes');
+const productRoutes = require('./routes/product.routes');
+const orderRoutes = require('./routes/order.routes');
+const reviewRoutes = require('./routes/review.routes');
 
 const app = express();
 
@@ -35,12 +35,12 @@ app.get('/health', (req, res) => {
 });
 
 // API Routes
-// app.use('/api/auth', authRoutes);
-// app.use('/api/users', userRoutes);
-// app.use('/api/categories', categoryRoutes);
-// app.use('/api/products', productRoutes);
-// app.use('/api/orders', orderRoutes);
-// app.use('/api/reviews', reviewRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/categories', categoryRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/reviews', reviewRoutes);
 
 // 404 Handler
 app.use(notFound);
